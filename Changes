@@ -1,0 +1,4 @@
+2004-08-13  Tom Insam  <tom@jerakeen.org>
+
+  * Initial release, can get path from itms:// urls
+

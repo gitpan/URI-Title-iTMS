@@ -1,0 +1,9 @@
+NAME
+    URI::Title::iTMS - Get titles from itms:// urls
+
+DESCRIPTION
+    An add-on to URI::Title, this module adds support for itms:// urls..
+
+AUTHOR
+    Tom Insam <tom@jerakeen.org>
+

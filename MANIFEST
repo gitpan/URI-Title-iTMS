@@ -1,0 +1,8 @@
+Build.PL
+lib/URI/Title/iTMS.pm
+MANIFEST			This list of files
+META.yml
+t/itms.t
+Changes
+README
+Makefile.PL
