@@ -14,7 +14,7 @@ Tom Insam <tom@jerakeen.org>
 
 package URI::Title::iTMS;
 
-our $VERSION = '0.4';
+our $VERSION = '0.5';
 
 use warnings;
 use strict;
@@ -28,14 +28,33 @@ sub types {(
 sub title {
   my ($self, $uri, $data, $type) = @_;
   $uri =~ s/^itms/http/;
-  
-  my $info = Net::iTMS->new->fetch_iTMS_info( $uri )
+
+
+  my $title;
+
+  # check to see what version of Net::iTMS we have
+  eval { require Net::iTMS::Request };
+
+  # we must have the old version
+  if ($@ ) {
+
+    my $info = Net::iTMS->new->fetch_iTMS_info( $uri )
     or return "iTMS / Not an iTMS url";
 
-  my $title =
+    $title =
     eval { "iTMS / " . join(" / ", map { $_->{name} } @{ $info->Path } ) }
-    || "iTMS / Error getting title from $uri: $@";
+    || "iTMS / Error getting title";
 
+  # it's the new version with the completely changed API
+  } else {  
+
+    my $r =  Net::iTMS::Request->new( debug => 0,  show_xml => 1  );
+    my $info = $r->url($uri);
+    my $path = $info->root->first_child('Path');
+    $title =
+        eval { "iTMS / " . join(" / ", map { $_->att('displayName') } $path->children('PathElement') ) }
+        || "iTMS / Error getting title from $uri: $@";
+  }
             
   return $title;
 }

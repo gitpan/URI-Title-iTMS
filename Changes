@@ -1,3 +1,7 @@
+2005-04-19  Simon Wistow <simon@thegestalt.org>
+
+  * Fix so that it works with versions of Net::iTMS >= 0.1
+
 2004-08-13  Tom Insam  <tom@jerakeen.org>
 
   * Initial release, can get path from itms:// urls

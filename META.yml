@@ -1,6 +1,6 @@
---- #YAML:1.0
+---
 name: URI-Title-iTMS
-version: 0.4
+version: 0.5
 author:
   - Tom Insam <tom@jerakeen.org>
 abstract: Get titles from itms:// urls
@@ -11,5 +11,5 @@ requires:
 provides:
   URI::Title::iTMS:
     file: lib/URI/Title/iTMS.pm
-    version: 0.4
-generated_by: Module::Build version 0.25
+    version: 0.5
+generated_by: Module::Build version 0.2608

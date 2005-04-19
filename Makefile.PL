@@ -2,13 +2,13 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
-          'PL_FILES' => {},
-          'INSTALLDIRS' => 'site',
           'NAME' => 'URI::Title::iTMS',
           'VERSION_FROM' => 'lib/URI/Title/iTMS.pm',
           'PREREQ_PM' => {
-                           'Net::iTMS' => 0,
-                           'URI::Title' => 1
-                         }
+                           'Net::iTMS' => '0',
+                           'URI::Title' => '1'
+                         },
+          'INSTALLDIRS' => 'site',
+          'PL_FILES' => {}
         )
 ;
